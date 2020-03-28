@@ -200,7 +200,7 @@
 		var url = data['url'];
 		if(encurtar === 'sim'){
 	
-			fetch('https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17&site='+url,{mode: 'cors'})
+			fetch('https://cors-anywhere.herokuapp.com/https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17&url='+url,{mode: 'cors'})
 			.then(response => {
 				return response.json()
 			})
