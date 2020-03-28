@@ -152,6 +152,21 @@
 	<script>
 		// function pixelFB(id){fetch('https://www.facebook.com/tr?id='+id+'&ev=Lead&noscript=1',{'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'});}
 		// pixelFB('114179306111588');
+
+		// $.ajax({
+        //     url: "https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17",
+        //     type: "POST",
+        //     crossDomain: true,
+        //     // data: JSON.stringify(somejson),
+        //     dataType: "json",
+        //     success: function (response) {
+        //         var resp = JSON.parse(response)
+        //         alert(resp.status);
+        //     },
+        //     error: function (xhr, status) {
+        //         alert("error");
+        //     }
+		// });
 	</script>
 
 	<script>
@@ -159,19 +174,58 @@
 		// 	console.log(data);
 		// });
 
-		let response = await fetch('https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17', {'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'});
+		// let response = await fetch('https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17', {'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'});
 
-		if (response.ok) { // если HTTP-статус в диапазоне 200-299
-			// получаем тело ответа (см. про этот метод ниже)
-			let json = await response.json();
-			console.log(json);
+		// if (response.ok) { // если HTTP-статус в диапазоне 200-299
+		// 	// получаем тело ответа (см. про этот метод ниже)
+		// 	let json = await response.json();
+		// 	console.log(json);
+		// } else {
+		//     alert("Ошибка HTTP: " + response.status);
+		// }
+	</script>
+
+	<script type="text/javascript">
+		var query = location.search.slice(1);
+		var partes = query.split('&');
+		var data = {};
+		partes.forEach(function (parte) {
+			var chaveValor = parte.split('=');
+			var chave = chaveValor[0];
+			var valor = chaveValor[1];
+			data[chave] = valor;
+		});
+		
+		var encurtar = data['encurtar'];
+		var url = data['url'];
+		if(encurtar === 'sim'){
+	
+			fetch('https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17&site='+url,{mode: 'cors'})
+			.then(response => {
+				return response.json()
+			})
+			.then(resultado => {
+				// Work with JSON data here
+				var link = resultado['short'];
+				$(document).ready(function () {
+					$('.custom-url').attr('href', link);
+				});
+			})
+			.catch(err => {
+				// Do something for an error here
+			})
+		
 		} else {
-		    alert("Ошибка HTTP: " + response.status);
+		
+			$(document).ready(function () {
+				$('.custom-url').attr('href', decodeURIComponent(url));
+			});
+		
 		}
 	</script>
 	
 
-	<span id="693d04fc-499e-c673-8521-e2dff373ede7"></span>
+	<!-- <span id="693d04fc-499e-c673-8521-e2dff373ede7"></span>
 	<script type="application/javascript">
 		var d=document;var s=d.createElement('script'); 
 		s.src='https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e7f8587c60ff=script5e7f8587c6100&_cid=693d04fc-499e-c673-8521-e2dff373ede7'; 
@@ -181,6 +235,6 @@
 			d.getElementsByTagName('head')[0].appendChild(s);
 		}
 		if (document.location.protocol === 'https:' && 'https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e7f8587c60ff=script5e7f8587c6100'.indexOf('http:') === 0 ) {alert('The website works on HTTPS. The tracker must use HTTPS too.');}
-	</script>
+	</script> -->
 </body> 
 </html> 
