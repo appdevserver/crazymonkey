@@ -1,19 +1,4 @@
-﻿<?php
-// Query params are: utm_creative={{ad.name}}&utm_campaign={{campaign.name}}&utm_source={{site_source_name}}&utm_placement={{placement}}&adset_id={{adset.id}} 
-
-require_once dirname(__FILE__) . '/kclick_client.php';
-$client = new KClickClient('https://durixt.com/api.php?', 'dFMPCdws6LTjSz17');
-$client->sendAllParams();       // to send all params from page query
-$client->forceRedirectOffer();       // redirect to offer if an offer is chosen
-// $client->param('sub_id_5', '123'); // you can send any params
-// $client->keyword('PASTE_KEYWORD');  // send custom keyword
-// $client->currentPageAsReferrer(); // to send current page URL as click referrer
-// $client->debug();              // to enable debug mode and show the errors
-// $client->execute();             // request to api, show the output and continue
-$client->executeAndBreak();     // to stop page execution if there is redirect or some output
-?>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html manifest="offline.appcache">
 <head>
     <meta charset="UTF-8" />
