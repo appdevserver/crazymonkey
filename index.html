@@ -68,8 +68,7 @@
 			touch-action: none;
 			-ms-touch-action: none;
 		}
-    </style>
-	
+	</style>
 
 </head> 
  
@@ -148,6 +147,40 @@
 			// Register an empty service worker to trigger web app install banners.
 			navigator.serviceWorker.register("sw.js", { scope: "./" });
 		}
-    </script>
+	</script>
+
+	<script>
+		// function pixelFB(id){fetch('https://www.facebook.com/tr?id='+id+'&ev=Lead&noscript=1',{'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'});}
+		// pixelFB('114179306111588');
+	</script>
+
+	<script>
+		// $.post( "https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17", function( data ) {
+		// 	console.log(data);
+		// });
+
+		let response = await fetch('https://durixt.com/click_api/v3?token=dFMPCdws6LTjSz17', {'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'});
+
+		if (response.ok) { // если HTTP-статус в диапазоне 200-299
+			// получаем тело ответа (см. про этот метод ниже)
+			let json = await response.json();
+			console.log(json);
+		} else {
+		    alert("Ошибка HTTP: " + response.status);
+		}
+	</script>
+	
+
+	<span id="693d04fc-499e-c673-8521-e2dff373ede7"></span>
+	<script type="application/javascript">
+		var d=document;var s=d.createElement('script'); 
+		s.src='https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e7f8587c60ff=script5e7f8587c6100&_cid=693d04fc-499e-c673-8521-e2dff373ede7'; 
+		if (document.currentScript) { 
+			document.currentScript.parentNode.insertBefore(s, document.currentScript);
+		} else {
+			d.getElementsByTagName('head')[0].appendChild(s);
+		}
+		if (document.location.protocol === 'https:' && 'https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e7f8587c60ff=script5e7f8587c6100'.indexOf('http:') === 0 ) {alert('The website works on HTTPS. The tracker must use HTTPS too.');}
+	</script>
 </body> 
 </html> 
