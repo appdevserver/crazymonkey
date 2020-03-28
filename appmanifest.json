@@ -1,8 +1,12 @@
 ﻿{
-	"name": "Stick Monkey",
-	"short_name": "Stick Monkey",
+	"name": "Crazy Monkey",
+	"short_name": "Crazy Monkey",
+	"description": "Crazy Monkey вернулись! Теперь ты можешь играть в любимые игры прямо на своем смартфоне. Лови бананы, как раньше! Играй и выигрывай!",
 	"start_url": "index.html",
-	"display": "fullscreen",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#ffbf00",
+  	"background_color": "#ffffff",
 	"orientation": "any",
 	"icons": [{
 		"src": "icon-16.png",
@@ -17,12 +21,16 @@
 		"sizes": "128x128",
 		"type": "image/png"
 	}, {
-		"src": "icon-256.png",
+		"src": "icon-144.png",
 		"sizes": "144x144",
 		"type": "image/png"
 	}, {
 		"src": "icon-256.png",
 		"sizes": "256x256",
+		"type": "image/png"
+	}, {
+		"src": "icon-512.png",
+		"sizes": "512x512",
 		"type": "image/png"
 	}]
 }
