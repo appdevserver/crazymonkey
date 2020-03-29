@@ -14,7 +14,9 @@
 	<meta name="theme-color" content="#ffbf00">
 	
 	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+
 	
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
@@ -55,8 +57,8 @@
 			background-size: cover;
 			color: #fff;
 			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
+            touch-action: auto;
+			-ms-touch-action: auto;
 		}
         iframe {
             display: block;       /* iframes are inline by default */
