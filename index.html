@@ -75,13 +75,20 @@
 
 	<script>
 		(function() {
-			// let pixel_id = ;
-			// function pixelFB(id) { fetch('https://www.facebook.com/tr?id='+pixel_id+'&ev=PageView&noscript=1',{'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'}); }
-			// pixelFB(pixel_id);
-		})();
-	</script>
+			var pixel_id = findGetParameter('fb_pixel');
+			function pixelFB(id) { fetch('https://www.facebook.com/tr?id='+pixel_id+'&ev=PageView&noscript=1',{'credentials':'omit','referrerPolicy':'origin','method':'GET','mode':'no-cors'}); }
+			pixelFB(pixel_id);
 
-</head> 
+		})();
+		function findGetParameter(parameterName) {
+			var result = null, tmp = [];
+			var items = location.search.substr(1).split("&");
+			for (var index = 0; index < items.length; index++) {
+				tmp = items[index].split("=");
+				if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+			}; return result;
+		}
+	</script>
  
 <body> 
 	<div id="fb-root"></div>
