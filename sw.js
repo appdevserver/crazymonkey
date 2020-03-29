@@ -4,44 +4,40 @@
 	registered. See: http://updates.html5rocks.com/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android
 */
 
-//This is the service worker with the Advanced caching
+// use a cacheName for cache versioning
+var cacheName = 'v1:static';
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
-
-const CACHE = "pwabuilder-adv-cache";
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+// during the install phase you usually want to cache static assets
+self.addEventListener('install', function(e) {
+    // once the SW is installed, go ahead and fetch the resources to make this work offline
+    e.waitUntil(
+        caches.open(cacheName).then(function(cache) {
+            return cache.addAll([
+                './',
+                './c2runtime.js',
+                './contact.html',
+                './data.js',
+                './index.html',
+                './jquery-2.1.1.min.js',
+                './privacy.html'
+            ]).then(function() {
+                self.skipWaiting();
+            });
+        })
+    );
 });
 
-const networkFirstPaths = [
-  /* Add an array of regex of paths that should go network first */
-  // Example: /\/api\/.*/
-];
-
-const networkOnlyPaths = [
-  /* Add an array of regex of paths that should always come from the network */
-  // Example: /\/api\/.*/
-]
-
-networkFirstPaths.forEach((path) => {
-  workbox.routing.registerRoute(
-    new RegExp(path),
-    new workbox.strategies.NetworkFirst({
-      cacheName: CACHE
-    })
-  );
+// when the browser fetches a url
+self.addEventListener('fetch', function(event) {
+    // either respond with the cached object or go ahead and fetch the actual url
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            if (response) {
+                // retrieve from cache
+                return response;
+            }
+            // fetch as normal
+            return fetch(event.request);
+        })
+    );
 });
-
-networkOnlyPaths.forEach((path) => {
-  workbox.routing.registerRoute(
-    new RegExp(path),
-    new workbox.strategies.NetworkOnly({
-      cacheName: CACHE
-    })
-  );
-});
-
-
