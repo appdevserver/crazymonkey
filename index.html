@@ -177,8 +177,11 @@
 					// c2canvasdiv
 					var counter = 0;
 					document.body.addEventListener("click", function() { 
-						if (counter >= 1) document.location.href = './contact.html#email';
-						counter++;
+						if (counter >= 1) document.location.href = './contact.html#email'; counter++;
+					});
+
+					document.body.addEventListener("touchstart", function() { 
+						if (counter >= 1) document.location.href = './contact.html#email'; counter++;
 					});
 				}
 			})
