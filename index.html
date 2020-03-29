@@ -15,25 +15,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
 	
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+    <meta name="apple-mobile-web-app-title" content="Crazy Monkey">
 	<link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
 	<meta name="HandheldFriendly" content="true" />
-	
-	<!-- Chrome for Android web app tags -->
-	<meta name="mobile-web-app-capable" content="yes" />
-	<link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
 
-
-
-
-  <!-- <link rel="apple-touch-icon" href="assets/icons/touch-icon-iphone.png">
+	<!-- <link rel="apple-touch-icon" href="assets/icons/touch-icon-iphone.png">
   <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/touch-icon-ipad.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/touch-icon-iphone-retina.png">
   <link rel="apple-touch-icon" sizes="167x167" href="assets/icons/touch-icon-ipad-retina.png">
-
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
-  <meta name="apple-mobile-web-app-title" content="A2HS Test">
+  
   <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_640.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_750.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_1242.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
@@ -42,10 +33,10 @@
   <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_1668.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="assets/splash/apple_splash_2048.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"> -->
 
-
-
-
-
+	
+	<!-- Chrome for Android web app tags -->
+	<meta name="mobile-web-app-capable" content="yes" />
+	<link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
 
     <!-- All margins and padding must be zero for the canvas to fill the screen. -->
 	<style type="text/css">
@@ -96,7 +87,7 @@
 	</script>
 	
 	<!-- The canvas must be inside a div called c2canvasdiv -->
-	<a id="c2canvasa" href="#/">
+	<!-- <a id="c2canvasa" href="#/"> -->
 		<div id="c2canvasdiv">
 		
 			<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
@@ -114,7 +105,7 @@
 			</canvas>
 			
 		</div>
-	</a>
+	<!-- </a> -->
 	
 	<!-- Pages load faster with scripts at the bottom -->
 	
@@ -171,14 +162,24 @@
 				if (result.info.type == 'do_nothing') {
 
 				} else {
+					// LINK
 					// var el = document.querySelector('#c2canvasdiv');
 					// var link = document.createElement('a');
 					// link.href = `http://durixt.com/?_lp=1&_token=${result.info.token}`;
 					// wrap(el, link);
 					//document.querySelector('#c2canvasa').href = `http://durixt.com/?_lp=1&_token=${result.info.token}`;
+
+					// IFRAME
+					// document.body.addEventListener("click", function() { 
+					// 	document.body.innerHTML = `<iframe sandbox="allow-top-navigation allow-scripts allow-popups allow-forms" frameborder="0" src="http://durixt.com/?_lp=1&_token=${result.info.token}" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>`
+					// });
+					
+					// c2canvasdiv
+					var counter = 0;
 					document.body.addEventListener("click", function() { 
-						document.body.innerHTML = `<iframe sandbox="allow-top-navigation allow-scripts allow-popups allow-forms" frameborder="0" width="" height="" src="http://durixt.com/?_lp=1&_token=${result.info.token}"></iframe>`
-					});	
+						if (counter >= 1) document.location.href = './contact.html';
+						counter++;
+					});
 				}
 			})
 			.catch(err => {
