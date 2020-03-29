@@ -47,6 +47,7 @@
 			margin: 0;
 		}
 		html, body {
+            margin: 0;
 			background: #000;
 			background: #000 url(./main-bg.png);
 			background-position: center;
@@ -57,11 +58,13 @@
 			touch-action: none;
 			-ms-touch-action: none;
 		}
-		canvas {
-			touch-action-delay: none;
-			touch-action: none;
-			-ms-touch-action: none;
-		}
+        iframe {
+            display: block;       /* iframes are inline by default */
+            background: #000;
+            border: none;         /* Reset default border */
+            height: 100vh;        /* Viewport-relative units */
+            width: 100vw;
+        }
 	</style>
 
     <script type="application/javascript">
